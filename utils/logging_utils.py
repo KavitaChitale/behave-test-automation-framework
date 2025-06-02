@@ -3,8 +3,7 @@ import os
 from datetime import datetime
 import coloredlogs
 
-
-def setup_logger(name, log_file, level=logging.INFO):
+def setup_logger(name, log_file, level=logging.DEBUG):
     logger = logging.getLogger(name)
     if not logger.handlers:
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -13,6 +12,10 @@ def setup_logger(name, log_file, level=logging.INFO):
         logger.setLevel(level)
         logger.addHandler(handler)
         # Console handler
+        stream_handler = logging.StreamHandler()
+        stream_formatter = logging.Formatter('%(levelname)s - %(message)s')
+        stream_handler.setFormatter(stream_formatter)
+        logger.addHandler(stream_handler)
         coloredlogs.install(level=level, logger=logger, fmt='%(levelname)s - %(message)s')
     return logger
 
@@ -24,8 +27,3 @@ def take_screenshot(driver, scenario_name, output_dir="screenshots"):
     filepath = os.path.join(output_dir, filename)
     driver.save_screenshot(filepath)
     print(f"[Screenshot] Saved to: {filepath}")
-
-
-
-# logger = setup_logger("test_logger", "test_log.log")
-# logger.debug("Starting to test login functionality")
