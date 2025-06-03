@@ -1,0 +1,6 @@
+2025-06-02 14:32:28,316 - INFO - Navigating to the OrangeHRM login page.
+2025-06-02 14:32:36,924 - DEBUG - Waiting for username input to be visible.
+2025-06-02 14:32:38,666 - INFO - Entered valid username and password.
+2025-06-02 14:32:38,668 - DEBUG - Waiting for the login button to be clickable.
+2025-06-02 14:32:40,067 - INFO - Clicked the login button.
+2025-06-02 14:32:40,068 - DEBUG - Verifying the dashboard is visible.
